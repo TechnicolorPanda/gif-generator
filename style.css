@@ -1,0 +1,23 @@
+body {
+  background-color: black;
+}
+
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1rem;
+}
+
+h1 {
+    text-align: center;
+    color: grey;
+}
+
+button {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1rem;
+  padding: .5rem;
+}
