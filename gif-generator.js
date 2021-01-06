@@ -14,18 +14,17 @@ function refreshButton() {
 
 // retrieve defined gif
 
-function searchForGif(searchTerm) {
+async function searchForGif(searchTerm) {
   const img = document.querySelector('img');
-  fetch(`https://api.giphy.com/v1/gifs/translate?api_key=CEm2z9suJ31Eb7jB6G3ZBWDSND8HOECl&s=${searchTerm}`, {
-    mode: 'cors',
-  })
-    .then((response) => response.json())
-    .then((response) => {
-      img.src = response.data.images.original.url;
-    })
-    .catch(() => {
-      errorImage();
+  try {
+    const response = await fetch(`https://api.giphy.com/v1/gifs/translate?api_key=CEm2z9suJ31Eb7jB6G3ZBWDSND8HOECl&s=${searchTerm}`, {
+      mode: 'cors',
     });
+    const gifData = await response.json();
+    img.src = gifData.data.images.original.url;
+  } catch (err) {
+    errorImage();
+  }
 }
 
 // retrieve input of desired search
